@@ -24,10 +24,10 @@ class SimonIO:
         self.buzz(False)
 
 pins = [
-    SimonIO("Green", 16, 17, 262), # green, C4
-    SimonIO("Red", 18, 19, 294), # red, D4
-    SimonIO("Yellow", 20, 21, 330), # yellow, E4
-    SimonIO("Blue", 26, 27, 349), # blue, F4
+    SimonIO("Green", 16, 17, 262), # 262 = freq for C4 note. These notes are from the C major scale.
+    SimonIO("Red", 18, 19, 294), # D4
+    SimonIO("Yellow", 20, 21, 330), # E4
+    SimonIO("Blue", 26, 27, 349), # F4
 ]
 
 buzzer = machine.PWM(machine.Pin(28))
@@ -72,7 +72,7 @@ while True:
             entry.show(.5)
             utime.sleep(.2)
 
-        # Now they've got to enter each one.
+        # Now they've got to enter that same sequence.
         for entry in currentGame:
             inputPin = None
 
@@ -106,4 +106,5 @@ while True:
                 lost = True
                 break
 
-            utime.sleep(1)
+        # Do a bit of a delay so it doesn't jump right into the replay when they release the button
+        utime.sleep(1)
