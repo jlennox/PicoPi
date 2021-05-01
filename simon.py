@@ -113,6 +113,9 @@ while True:
                         pin.buzz(False)
                         pin.led.off()
                         print("...and released.")
+                        # Sleep for a small amount of time. After testing, sometimes the button
+                        # would register again.
+                        utime.sleep(.2)
                         # Don't loop through the rest of the pins because we got a hit already.
                         break
 
